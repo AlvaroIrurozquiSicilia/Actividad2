@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button boton_examen = findViewById(R.id.boton_examen);
-        Button boton_estudio = findViewById(R.id.boton_estudio);
+        ImageButton boton_examen = findViewById(R.id.Boton_imagen_examen);
+        ImageButton boton_estudio = findViewById(R.id.Boton_imagen_estudio);
 
         //noinspection Convert2Lambda
         boton_estudio.setOnClickListener(new View.OnClickListener() {

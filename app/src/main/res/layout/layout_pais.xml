@@ -7,9 +7,8 @@
 
     <TextView
         android:id="@+id/textViewPais"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,10 +16,12 @@
 
     <TextView
         android:id="@+id/textViewCapital"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPais"
-        tools:layout_editor_absoluteX="176dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPais" />
 </androidx.constraintlayout.widget.ConstraintLayout>

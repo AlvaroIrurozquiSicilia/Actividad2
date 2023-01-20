@@ -9,16 +9,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class CapitalesRecyclerViewAdapter extends RecyclerView.Adapter<CapitalViewHolder> {
-
+    Map<String, List<Pais>> datos = new TreeMap<>();
     private List<Pais> paises = new ArrayList<>();
 
     public void setPaises(List<Pais> paises) {
         this.paises = paises;
         notifyDataSetChanged();
     }
-
     //Metodo que crea las vistas
     @NonNull
     @Override
@@ -38,4 +39,5 @@ public class CapitalesRecyclerViewAdapter extends RecyclerView.Adapter<CapitalVi
     public int getItemCount() {
         return paises.size();
     }
+
 }

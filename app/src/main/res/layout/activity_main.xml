@@ -14,60 +14,48 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="379dp"
-        android:layout_height="338dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="346dp"
+        android:layout_height="295dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.168"
         app:srcCompat="@drawable/mapamundi" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="96dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="29dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.018"
-        app:srcCompat="@drawable/estudio" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="105dp"
-        android:layout_height="112dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="56dp"
+    <ImageButton
+        android:id="@+id/Boton_imagen_examen"
+        android:layout_width="137dp"
+        android:layout_height="134dp"
+        android:layout_marginEnd="60dp"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Boton_imagen_estudio"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.254"
         app:srcCompat="@drawable/test" />
 
-    <Button
-        android:id="@+id/boton_estudio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="678dp" />
-
-    <Button
-        android:id="@+id/boton_examen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="680dp" />
+    <ImageButton
+        android:id="@+id/Boton_imagen_estudio"
+        android:layout_width="133dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="44dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Boton_imagen_examen"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.232"
+        app:srcCompat="@drawable/estudio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

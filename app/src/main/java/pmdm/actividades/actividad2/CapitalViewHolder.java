@@ -16,13 +16,12 @@ public class CapitalViewHolder extends RecyclerView.ViewHolder {
 
     public CapitalViewHolder(@NonNull View itemView) {
         super(itemView);
-
         textViewCapital = itemView.findViewById(R.id.textViewCapital);
         textViewPais = itemView.findViewById(R.id.textViewPais);
     }
 
     public void bind(Pais pais) {
-        textViewPais.setText(pais.getCapital());
+        textViewPais.setText(pais.getNombre());
         textViewCapital.setText(pais.getCapital());
     }
 }

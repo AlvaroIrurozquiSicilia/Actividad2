@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Actividad2</string>
+    <string-array name="continentes">
+        <item>ELIGE UNA OPCIÓN</item>
+       <item>ÁFRICA</item>
+        <item>EUROPA</item>
+        <item>OCEANÍA</item>
+        <item>AMÉRICA</item>
+        <item>ASIA</item>
+    </string-array>
 </resources>
