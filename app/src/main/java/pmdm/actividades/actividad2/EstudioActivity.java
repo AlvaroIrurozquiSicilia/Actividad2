@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import java.io.BufferedReader;
@@ -20,28 +21,24 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
 public class EstudioActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    //para el fondo tendria que hacer un layout generico, para luego con un content view y un select
-    //cambiarle el drawable
-    private Button Boton_Atras;
     private Map<String, List<Pais>> datos = new TreeMap<>();
     private CapitalesRecyclerViewAdapter adapterVHA;
+    private ImageView imageViewMapaRotativo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         leerDatos();
-
         setContentView(R.layout.layout_generico);
+        imageViewMapaRotativo = findViewById(R.id.mapa_rotativo);
+        //noinspection RedundantCast
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.continentes, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.continentes, R.layout.layout_spinner);
         spinner.setAdapter(adapter);
-
         adapterVHA = new CapitalesRecyclerViewAdapter();
         RecyclerView rvPaises = findViewById(R.id.lista_capitales);
         rvPaises.setAdapter(adapterVHA);
         rvPaises.setLayoutManager(new LinearLayoutManager(this));
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -49,42 +46,45 @@ public class EstudioActivity extends AppCompatActivity implements AdapterView.On
                     //segun el continente seleccionado, mostrar los paises correspondientes
                     case 0:
                         //es vacio, no hay paises
+                        imageViewMapaRotativo.setImageResource(R.drawable.mapamundi);
                         break;
                     case 1:
                         //Africa
                         adapterVHA.setPaises(datos.get("ÁFRICA"));
-
+                        imageViewMapaRotativo.setImageResource(R.drawable.africa);
                         break;
                     case 2:
                         //Europa
                         adapterVHA.setPaises(datos.get("EUROPA"));
+                        imageViewMapaRotativo.setImageResource(R.drawable.europa);
                         break;
                     case 3:
                         //Oceania
                         adapterVHA.setPaises(datos.get("OCEANÍA"));
+                        imageViewMapaRotativo.setImageResource(R.drawable.oceania);
                         break;
                     case 4:
                         //America
                         adapterVHA.setPaises(datos.get("AMÉRICA"));
+                        imageViewMapaRotativo.setImageResource(R.drawable.america);
                         break;
                     case 5:
                         //Asia
                         adapterVHA.setPaises(datos.get("ASIA"));
-
+                        imageViewMapaRotativo.setImageResource(R.drawable.asia);
                         break;
                 }
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
-        Boton_Atras = findViewById(R.id.Boton_Atras);
-        Boton_Atras.setVisibility(View.VISIBLE);
+        //para el fondo tendria que hacer un layout generico, para luego con un content view y un select
+        //cambiarle el drawable
+        Button boton_Atras = findViewById(R.id.Boton_Atras);
+        boton_Atras.setVisibility(View.VISIBLE);
         //noinspection Convert2Lambda
-        Boton_Atras.setOnClickListener(new View.OnClickListener() {
+        boton_Atras.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(EstudioActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -95,10 +95,8 @@ public class EstudioActivity extends AppCompatActivity implements AdapterView.On
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
     public void leerDatos() {
         try  {
@@ -114,14 +112,16 @@ public class EstudioActivity extends AppCompatActivity implements AdapterView.On
                     datos.put(items[0], paises);
                 }
                 paises.add(pais);
-
             }
         } catch (IOException e) {
             datos = null;
         }
     }
+    @SuppressWarnings("unused")
     public Map<String,List<Pais>> getDatos(){return datos;}
+    @SuppressWarnings("unused")
     public List<Pais> guardar(String continente){
+        //noinspection ConstantConditions
         return Collections.unmodifiableList(datos.get(continente));
     }
 }
